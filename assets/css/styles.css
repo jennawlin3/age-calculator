@@ -1,0 +1,161 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+:root {
+    --purple: hsl(259, 100%, 65%);
+    --light-red: hsl(0, 100%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --off-white: hsl(0, 0%, 94%);
+    --light-grey: hsl(0, 0%, 86%);
+    --smokey-grey: hsl(0, 1%, 44%);
+    --off-black: hsl(0, 0%, 8%);
+}
+
+body {
+    background-color: var(--off-white);
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    margin: 40px 0;
+}
+
+.container {
+    background-color: var(--white);
+    width: 90%;
+    padding: 40px;
+    min-height: 300px;
+    border-radius: 20px 20px 80px 20px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.form-container {   
+    border-bottom: 2px solid var(--light-grey);
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#form label {
+    text-transform: uppercase;
+    color: var(--smokey-grey);
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#form input[type="number"]  {
+    margin-top: 10px;
+    border: 1px solid var(--light-grey);
+    height: 50px;
+    padding-left: 15px;
+    border-radius: 7px;
+    color: var(--off-black);
+    font-size: 1.5rem;
+    font-weight: 800;
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }
+
+.error {
+    color: var(--light-red) !important;
+}
+
+.day-error, .month-error, .year-error {
+    margin-top: 10px;
+    font-size: 12px;
+    display: none;    
+}
+
+.show {
+    display: block;
+}
+
+input:invalid, .input-error {
+    border: 1px solid var(--light-red) !important;
+}
+
+.day-container, .month-container, .year-container {
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;    
+}
+
+#submit {
+    background-color: var(--purple);
+    border: none;
+    padding: 20px;
+     border-radius: 50%;
+     cursor: pointer;
+     z-index: 999;
+    position: absolute;
+    bottom: 260px;
+}
+
+#submit:hover {
+     background-color: var(--off-black);
+}
+
+#submit img {
+    width: 20px;
+    height: 20px;
+}
+
+.result {
+    margin-top: 30px;
+}
+
+#days-result, #years-result, #months-result {
+    font-size: 3rem;
+    font-weight: 900; 
+    color: var(--off-black);
+    font-style: italic;
+}
+
+.color {
+    color: var(--purple);    
+}
+
+@media screen and (min-width: 768px) {
+    #form {
+        justify-content: flex-start;
+    }
+
+    .container {
+        width: 600px;
+    }
+
+    .day-container, .month-container, .year-container {
+        width: 125px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #submit {
+        right: 35px;
+    }
+}
