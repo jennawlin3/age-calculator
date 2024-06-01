@@ -130,7 +130,7 @@ input:invalid, .input-error {
 }
 
 #days-result, #years-result, #months-result {
-    font-size: 45px;
+    font-size: 39px;
     font-weight: 900; 
     color: var(--off-black);
     font-style: italic;
