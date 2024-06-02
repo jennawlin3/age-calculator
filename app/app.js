@@ -150,19 +150,36 @@ function calculate () {
 }
 
 function calculateResult() {
-    let pastDay = $input[0].value;
-    let pastMonth = $input[1].value - 1;
-    let pastYear = $input[2].value;
-    let pastDate = new Date(pastYear, pastMonth, pastDay).getTime();
-    let actualDate = new Date().getTime();
-    let diff = actualDate - pastDate;
-    let resultDays = Math.trunc(diff / (1000 * 60 * 60 * 24));
-    let resultMonths = Math.trunc(resultDays/30.44);
-    let resultYears = Math.trunc(resultDays / 30 /12);
+    let birthday = `${$input[2].value}/${$input[1].value}/${$input[0].value}`;
+    let birthdayDate = new Date(birthday);
+    let ageDiff = Date.now() -  birthdayDate;
+    let ageDate = new Date(ageDiff);
+    let ageYears = ageDate.getUTCFullYear() - 1970;
+    let ageMonth = ageDate.getUTCMonth();
 
-    $dayResult.textContent = resultDays;
-    $monthResult.textContent = resultMonths;
-    $yearResult.textContent = resultYears;
+    let pastDay = $input[0].value;
+    let pastMonth = $input[1].value;
+    let pastYear = $input[2].value;
+    let pastDate = new Date(pastYear, pastMonth - 1, pastDay);
+    let actualDate = new Date(); 
+    let diff = actualDate.getTime() - pastDate.getTime();  
+
+    console.log(actualDate.getDate() - pastDate.getDate());
+
+
+    let today = new Date();
+    let month = today.getMonth();
+    let day = Math.abs(today.getDate() - birthdayDate.getDate());
+
+    $monthResult.textContent = ageMonth;
+    $yearResult.textContent = ageYears;
+    $dayResult.textContent = day;
+}
+
+function eraseResult() {
+    $dayResult.textContent = "- -";
+    $monthResult.textContent = "- -";
+    $yearResult.textContent = "- -";
 }
 
 function eraseResult() {
